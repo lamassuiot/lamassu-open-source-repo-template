@@ -1,72 +1,81 @@
-# 🌍 Lamassu Open Source Repository Template
+# Project Name
 
-This repository is the **standard template for Lamassu open source repositories**.
+<!-- Replace with project name -->
 
-It provides a consistent and contributor-friendly starting point for public repositories in the Lamassu ecosystem.
-
----
-
-## 🎯 Purpose
-
-The goal of this template is to ensure that new open source repositories start with:
-
-- a clear public-facing README
-- standard community health files
-- contributor guidance
-- ownership and review configuration
-- alignment with Lamassu open source and engineering conventions
+Short description of the project.
 
 ---
 
-## 🧩 Includes
+## 🚀 Overview
 
-This template is intended to provide:
-
-- `README.md` baseline
-- `LICENSE`
-- `CONTRIBUTING.md`
-- `CODE_OF_CONDUCT.md`
-- `SECURITY.md` or support guidance
-- `.github/CODEOWNERS`
-- pull request template
-- issue templates for contributors
-- references to central Lamassu documentation where appropriate
+Describe what this project does and why it exists.
 
 ---
 
-## 📘 Central Documentation
+## 📦 Getting Started
 
-Cross-cutting engineering workflow documentation is maintained centrally in:
-
-- `lamassu-platform/docs`
-
-Open source repositories may reference the central Lamassu workflow documentation when useful, while keeping contributor-facing guidance local and self-contained.
+Explain how to install, run, or use the project.
 
 ---
 
-## 🧑‍🤝‍🧑 Open Source Focus
+## 🤝 Contributing
 
-This template is designed for public collaboration and should help external contributors quickly understand:
+We welcome contributions!
 
-- what the project does
-- how to get started
-- how to contribute
-- how reviews and ownership work
-- where to ask questions or report issues
+Please read [CONTRIBUTING.md](./CONTRIBUTING.md) before submitting a Pull Request.
 
 ---
 
-## 👥 Ownership Model
+## 🧭 Development Workflow
 
-- GitHub teams define **code and domain ownership**
-- maintainers and contributors collaborate through issues and pull requests
-- repository ownership and review routing are managed through `CODEOWNERS`
+This repository follows the **Lamassu engineering model** defined in the central platform repository.
+
+### 📘 Reference Documentation
+
+The full workflow, conventions, and standards are documented in:
+
+* **[Working Agreement](https://github.com/lamassuiot/lamassu-platform/blob/main/docs/working-agreement.md)** – how work flows from roadmap to delivery
+* **[Branching Strategy](https://github.com/lamassuiot/lamassu-platform/blob/main/docs/branching-strategy.md)** – branch naming, PR rules, and release model
+* **[Project Boards Guide](https://github.com/lamassuiot/lamassu-platform/blob/main/docs/project-boards.md)** – roadmap and execution board usage
+* **[Workflow Cheat Sheet](https://github.com/lamassuiot/lamassu-platform/blob/main/docs/workflow-cheat-sheet.md)** – quick reference for daily work
+
+👉 See: https://github.com/lamassuiot/lamassu-platform/tree/main/docs
+
+---
+
+### 🧠 Key Principles
+
+* Work is tracked using **GitHub Issues**
+* Work is executed on **Tasks and Bugs**, not Features
+* All changes go through **Pull Requests**
+* Every PR must reference an issue:
+
+  ```
+  Closes #<issue>
+  ```
+* Keep changes **small, focused, and reviewable**
+
+---
+
+### 👥 Ownership
+
+* Tasks are assigned to **individuals**
+* GitHub **teams define code ownership and review context**
 
 > Team owns the code; person owns the work.
 
 ---
 
-## 🔄 Expected Workflow
+### 🚀 TL;DR
 
 ```text
-Issue → Branch → Pull Request → Review → Merge
+EPIC → TASK → Execution Board → PR → Done
+```
+
+👉 If it's not in the board, it doesn't exist.
+
+---
+
+## 📄 License
+
+This project is licensed under the terms of the LICENSE file.
