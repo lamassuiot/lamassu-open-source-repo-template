@@ -38,3 +38,4 @@ do not use a closing keyword for it, since Strategic Epics are not closed from d
 - [ ] This PR does not include confidential, customer-specific, or commercial licensing information
 - [ ] The related issue is referenced above
 - [ ] Tests and/or documentation have been updated as needed
+- [ ] I have signed the [Contributor License Agreement](../CLA.md), if required for this repository

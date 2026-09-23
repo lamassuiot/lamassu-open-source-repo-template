@@ -1,0 +1,38 @@
+name: Lint PR Title
+
+# Enforces Conventional Commits (https://www.conventionalcommits.org/) on pull request titles,
+# so that git-cliff (see cliff.toml) can generate an accurate CHANGELOG.md. This matters most
+# if this repository squash-merges pull requests, since the PR title becomes the commit subject.
+
+on:
+  pull_request_target:
+    types:
+      - opened
+      - edited
+      - synchronize
+
+permissions:
+  pull-requests: read
+
+jobs:
+  lint-pr-title:
+    name: Validate PR title format
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Conventional Commits format
+        uses: amannn/action-semantic-pull-requests@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          types: |
+            feat
+            fix
+            docs
+            style
+            refactor
+            perf
+            test
+            build
+            ci
+            chore
+          requireScope: false

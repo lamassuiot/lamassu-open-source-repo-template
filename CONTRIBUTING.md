@@ -3,6 +3,19 @@
 Thank you for your interest in contributing to this project! This guide applies to this
 repository and other Lamassu Open Source repositories that follow the same workflow.
 
+## Code of Conduct
+
+This project and everyone participating in it is governed by our [Code of Conduct](./CODE_OF_CONDUCT.md).
+
+## Contributor License Agreement
+
+<!-- Remove this section, or update it to reference the enabled CLA workflow, once CLA.md
+     has been finalized by legal counsel and the CLA workflow is enabled. -->
+
+This project intends to require contributors to sign a [Contributor License Agreement](./CLA.md)
+(individual or corporate) before a pull request can be merged. The CLA is not yet finalized or
+enforced — see [CLA.md](./CLA.md) for status.
+
 ## Workflow overview
 
 Strategic planning is managed centrally. Implementation work is created in this
@@ -44,6 +57,20 @@ task/<short-description>
 bugfix/<short-description>
 ```
 
+## Commit messages and PR titles
+
+This repository uses [git-cliff](https://git-cliff.org/) (see [`cliff.toml`](./cliff.toml)) to
+generate [`CHANGELOG.md`](./CHANGELOG.md) from commit history, based on
+[Conventional Commits](https://www.conventionalcommits.org/). Format your commit messages (or
+your pull request title, if this repository squash-merges pull requests) as:
+
+```
+<type>[optional scope]: <description>
+```
+
+Common types: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, `chore`.
+Pull request titles are checked automatically by CI against this format.
+
 ## Pull requests
 
 * Keep PRs small, focused, and reviewable.
@@ -56,6 +83,7 @@ bugfix/<short-description>
 * At least one maintainer review is required before merging.
 * Reviewers may request changes; please respond to all review comments.
 * Be respectful and constructive — see our [Code of Conduct](./CODE_OF_CONDUCT.md).
+* See [MAINTAINERS.md](./MAINTAINERS.md) for the current list of maintainers.
 
 ## Tests and documentation
 

@@ -48,6 +48,7 @@ This repository follows the Lamassu Open Source engineering workflow.
 
 * Issues are assigned to **individuals**.
 * GitHub **teams (see [CODEOWNERS](./.github/CODEOWNERS))** define code ownership and review context.
+* See [MAINTAINERS.md](./MAINTAINERS.md) for the current maintainers and their areas of focus.
 
 > Team owns the code; person owns the work.
 
