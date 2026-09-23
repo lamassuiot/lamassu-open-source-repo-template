@@ -1,0 +1,41 @@
+name: Project Automation (Placeholder)
+
+# This workflow is a documented placeholder. It intentionally does nothing unless
+# explicitly enabled and configured at the organization/repository level, because:
+#
+#   - Adding issues to an organization Project requires write access to the
+#     organization's Project, which the default GITHUB_TOKEN does not grant.
+#   - This template must never hard-code a personal access token, project ID,
+#     or any organization-specific value.
+#
+# To activate real automation, a maintainer must, outside of this repository template:
+#   1. Create (or reuse) a GitHub App with the minimum required Projects permissions,
+#      install it on the organization, and store its App ID and private key as
+#      organization secrets (e.g. PROJECT_AUTOMATION_APP_ID, PROJECT_AUTOMATION_APP_PRIVATE_KEY).
+#   2. Configure the target Project's URL/ID as an organization or repository
+#      variable (e.g. PROJECT_AUTOMATION_PROJECT_URL) — do not hard-code it here.
+#   3. Set the repository or organization variable PROJECT_AUTOMATION_ENABLED to
+#      "true" once the above are in place.
+#   4. Replace the placeholder step below with the actual automation logic,
+#      generating a short-lived installation token from the GitHub App
+#      (e.g. via actions/create-github-app-token) instead of using a personal
+#      access token or GITHUB_TOKEN.
+
+on:
+  issues:
+    types: [opened, labeled]
+
+permissions:
+  contents: read
+
+jobs:
+  add-to-project:
+    name: Add issue to project (disabled by default)
+    runs-on: ubuntu-latest
+    if: vars.PROJECT_AUTOMATION_ENABLED == 'true'
+    steps:
+      - name: Placeholder — external configuration required
+        run: |
+          echo "Project automation is enabled but no implementation has been configured yet."
+          echo "See the comments at the top of this workflow for required organization variables and secrets."
+          exit 1

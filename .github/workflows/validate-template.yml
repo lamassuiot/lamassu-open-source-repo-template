@@ -1,0 +1,108 @@
+name: Validate Template
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate repository template
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Validate YAML syntax
+        run: |
+          python -m pip install --quiet pyyaml
+          python - <<'PYEOF'
+          import sys
+          import pathlib
+          import yaml
+
+          failed = False
+          for path in pathlib.Path(".").rglob("*.yml"):
+              if ".git" in path.parts:
+                  continue
+              try:
+                  list(yaml.safe_load_all(path.read_text()))
+              except yaml.YAMLError as exc:
+                  failed = True
+                  print(f"::error file={path}::Invalid YAML: {exc}")
+          for path in pathlib.Path(".").rglob("*.yaml"):
+              if ".git" in path.parts:
+                  continue
+              try:
+                  list(yaml.safe_load_all(path.read_text()))
+              except yaml.YAMLError as exc:
+                  failed = True
+                  print(f"::error file={path}::Invalid YAML: {exc}")
+          sys.exit(1 if failed else 0)
+          PYEOF
+
+      - name: Check required template files exist
+        run: |
+          required_files=(
+            "README.md"
+            "LICENSE"
+            "CONTRIBUTING.md"
+            "SECURITY.md"
+            "CODE_OF_CONDUCT.md"
+            ".github/CODEOWNERS"
+            ".github/pull_request_template.md"
+            ".github/ISSUE_TEMPLATE/config.yml"
+            ".github/ISSUE_TEMPLATE/bug.yml"
+            ".github/ISSUE_TEMPLATE/feature.yml"
+            ".github/ISSUE_TEMPLATE/task.yml"
+          )
+          missing=0
+          for f in "${required_files[@]}"; do
+            if [ ! -f "$f" ]; then
+              echo "::error::Missing required file: $f"
+              missing=1
+            fi
+          done
+          exit $missing
+
+      - name: Check blank_issues_enabled is false
+        run: |
+          if ! grep -q "^blank_issues_enabled: false" .github/ISSUE_TEMPLATE/config.yml; then
+            echo "::error file=.github/ISSUE_TEMPLATE/config.yml::blank_issues_enabled must be set to false"
+            exit 1
+          fi
+
+      - name: Basic Markdown quality check
+        run: |
+          npx --yes markdownlint-cli "**/*.md" --ignore node_modules --ignore .git || true
+
+      - name: Scan for likely private URLs or hostnames
+        run: |
+          set -e
+          pattern='(internal\.|intranet\.|localhost:[0-9]|\.corp\.|jira\.internal|confluence\.internal)'
+          matches=$(grep -RInE "$pattern" --exclude-dir=.git . || true)
+          if [ -n "$matches" ]; then
+            echo "::error::Possible private/internal URL reference found:"
+            echo "$matches"
+            exit 1
+          fi
+
+      - name: Scan for obvious credentials or private keys
+        run: |
+          set -e
+          pattern='(-----BEGIN (RSA|EC|OPENSSH|PGP|DSA) PRIVATE KEY-----|AKIA[0-9A-Z]{16}|ghp_[A-Za-z0-9]{20,}|xox[baprs]-[0-9A-Za-z-]{10,})'
+          matches=$(grep -RInE "$pattern" --exclude-dir=.git . || true)
+          if [ -n "$matches" ]; then
+            echo "::error::Possible credential or private key found:"
+            echo "$matches"
+            exit 1
+          fi

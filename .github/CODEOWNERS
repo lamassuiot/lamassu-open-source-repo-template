@@ -1,0 +1,14 @@
+# CODEOWNERS
+#
+# This file defines default reviewers for changes in this repository.
+#
+# NOTE: The real Lamassu maintainer team handle could not be verified from
+# within this repository template. Replace the placeholder below with the
+# actual GitHub team (e.g. @lamassuiot/<team-name>) before relying on this
+# file for review enforcement.
+
+# Changes to repository governance and automation require maintainer review.
+/.github/ @lamassuiot/REPLACE_WITH_MAINTAINER_TEAM
+
+# Default owners for everything else.
+* @lamassuiot/REPLACE_WITH_MAINTAINER_TEAM

@@ -24,58 +24,43 @@ We welcome contributions!
 
 Please read [CONTRIBUTING.md](./CONTRIBUTING.md) before submitting a Pull Request.
 
+Please create or link an issue before starting implementation work.
+
 ---
 
 ## 🧭 Development Workflow
 
-This repository follows the **Lamassu engineering model** defined in the central platform repository.
-
-### 📘 Reference Documentation
-
-The full workflow, conventions, and standards are documented in:
-
-* **[Working Agreement](https://github.com/lamassuiot/lamassu-platform/blob/main/docs/working-agreement.md)** – how work flows from roadmap to delivery
-* **[Branching Strategy](https://github.com/lamassuiot/lamassu-platform/blob/main/docs/branching-strategy.md)** – branch naming, PR rules, and release model
-* **[Project Boards Guide](https://github.com/lamassuiot/lamassu-platform/blob/main/docs/project-boards.md)** – roadmap and execution board usage
-* **[Workflow Cheat Sheet](https://github.com/lamassuiot/lamassu-platform/blob/main/docs/workflow-cheat-sheet.md)** – quick reference for daily work
-
-👉 See: https://github.com/lamassuiot/lamassu-platform/tree/main/docs
-
----
+This repository follows the Lamassu Open Source engineering workflow.
 
 ### 🧠 Key Principles
 
-* Work is tracked using **GitHub Issues**
-* Work is executed on **Tasks and Bugs**, not Features
-* All changes go through **Pull Requests**
-* Every PR must reference an issue:
+* Strategic planning is managed centrally.
+* Implementation work is created in this repository as **Features**, **Tasks**, or **Bugs**.
+* All changes are submitted through **Pull Requests**.
+* Every PR should reference the issue it addresses, for example:
 
   ```
   Closes #<issue>
   ```
-* Keep changes **small, focused, and reviewable**
-
----
+* Keep changes **small, focused, and reviewable**.
 
 ### 👥 Ownership
 
-* Tasks are assigned to **individuals**
-* GitHub **teams define code ownership and review context**
+* Issues are assigned to **individuals**.
+* GitHub **teams (see [CODEOWNERS](./.github/CODEOWNERS))** define code ownership and review context.
 
 > Team owns the code; person owns the work.
 
----
-
-### 🚀 TL;DR
-
-```text
-EPIC → TASK → Execution Board → PR → Done
-```
-
-👉 If it's not in the board, it doesn't exist.
+<!--
+Optional: if this project has publicly accessible reference documentation for its workflow
+or conventions, link it here using only public URLs. Do not link to private repositories,
+internal wikis, or non-public documentation.
+-->
 
 ---
 
 ## 📄 License
 
-This project is licensed under the terms of the LICENSE file.
+This project is licensed under the terms of the [LICENSE](./LICENSE) file (GNU AGPLv3).
+
+Copyright holder: <!-- Replace with the copyright holder, e.g. "Lamassu IoT" or the project owner -->.
