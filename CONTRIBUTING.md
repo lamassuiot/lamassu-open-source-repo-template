@@ -9,12 +9,18 @@ This project and everyone participating in it is governed by our [Code of Conduc
 
 ## Contributor License Agreement
 
-<!-- Remove this section, or update it to reference the enabled CLA workflow, once CLA.md
-     has been finalized by legal counsel and the CLA workflow is enabled. -->
+This project requires every contributor and co-author on a pull request to be covered by a
+signed Individual Contributor License Agreement (ICLA) or Corporate Contributor License
+Agreement (CCLA) before that pull request can be merged. This is currently a **manual**
+verification process — see [legal/README.md](./legal/README.md) for the agreements, how to
+request one, and how signed agreements are handled.
 
-This project intends to require contributors to sign a [Contributor License Agreement](./CLA.md)
-(individual or corporate) before a pull request can be merged. The CLA is not yet finalized or
-enforced — see [CLA.md](./CLA.md) for status.
+<!-- The agreement text linked from legal/README.md is currently a legal-review draft. Update
+     this note once the agreements are approved by legal counsel. -->
+
+CLA verification is mandatory before merging, in addition to normal code review and required
+status checks. See [legal/cla-maintainer-runbook.md](./legal/cla-maintainer-runbook.md) for the
+maintainer-side process.
 
 ## Workflow overview
 
