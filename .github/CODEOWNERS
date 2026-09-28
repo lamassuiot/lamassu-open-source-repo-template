@@ -10,5 +10,12 @@
 # Changes to repository governance and automation require maintainer review.
 /.github/ @lamassuiot/REPLACE_WITH_MAINTAINER_TEAM
 
+# Changes to CLA agreements, process, and related governance files require maintainer/legal
+# review. No confirmed legal team could be verified from within this template; replace with
+# the real legal/maintainer team once known (see legal/README.md).
+/legal/ @lamassuiot/REPLACE_WITH_MAINTAINER_TEAM
+/CONTRIBUTING.md @lamassuiot/REPLACE_WITH_MAINTAINER_TEAM
+/.github/pull_request_template.md @lamassuiot/REPLACE_WITH_MAINTAINER_TEAM
+
 # Default owners for everything else.
 * @lamassuiot/REPLACE_WITH_MAINTAINER_TEAM

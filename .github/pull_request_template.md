@@ -38,4 +38,12 @@ do not use a closing keyword for it, since Strategic Epics are not closed from d
 - [ ] This PR does not include confidential, customer-specific, or commercial licensing information
 - [ ] The related issue is referenced above
 - [ ] Tests and/or documentation have been updated as needed
-- [ ] I have signed the [Contributor License Agreement](../CLA.md), if required for this repository
+
+## CLA verification
+
+See [legal/README.md](../legal/README.md) for the ICLA/CCLA process. This is currently a manual
+verification performed by maintainers (see [legal/cla-maintainer-runbook.md](../legal/cla-maintainer-runbook.md)) — it is not automated.
+
+- [ ] I have contacted the Lamassu maintainers regarding the applicable ICLA or CCLA.
+- [ ] All contributors and co-authors involved in this pull request are identified.
+- [ ] I understand that this pull request cannot be merged until CLA verification is completed.
