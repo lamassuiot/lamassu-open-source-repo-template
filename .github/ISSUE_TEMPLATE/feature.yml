@@ -1,6 +1,7 @@
 name: "✨ Feature"
 description: Propose a new capability or enhancement.
 title: "[Feature]: "
+type: Feature
 labels:
   - enhancement
 body:
@@ -16,26 +17,40 @@ body:
   - type: textarea
     id: problem
     attributes:
-      label: Problem or motivation
-      description: What problem does this feature solve? Who is affected?
+      label: Problem or opportunity
+      description: What problem or opportunity does this feature address? Who is affected?
     validations:
       required: true
   - type: textarea
-    id: solution
+    id: value
     attributes:
-      label: Proposed solution
-      description: Describe the solution you'd like.
+      label: Expected value
+      description: What value or benefit would this feature deliver?
     validations:
       required: true
   - type: textarea
-    id: alternatives
+    id: outcome
     attributes:
-      label: Alternatives considered
-      description: Any alternative solutions or workarounds you've considered.
+      label: Desired outcome
+      description: Describe the outcome you'd like to see, without prescribing an implementation.
     validations:
-      required: false
+      required: true
   - type: textarea
-    id: acceptance
+    id: scope
+    attributes:
+      label: High-level scope
+      description: What is in scope at a high level for this feature?
+    validations:
+      required: true
+  - type: textarea
+    id: non_goals
+    attributes:
+      label: Non-goals
+      description: What is explicitly out of scope for this feature?
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance_criteria
     attributes:
       label: Acceptance criteria
       description: What conditions must be met for this feature to be considered complete?
@@ -44,3 +59,10 @@ body:
         - [ ] ...
     validations:
       required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies and references
+      description: Links to related issues, discussions, or public documentation (public URLs only).
+    validations:
+      required: false

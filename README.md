@@ -2,6 +2,13 @@
 
 <!-- Replace with project name -->
 
+<!--
+Optional: badges commonly used across Lamassu Open Source repos, e.g. license, build status,
+latest release. Remove this block if not applicable to this repository.
+
+[![License](https://img.shields.io/badge/license-AGPL--3.0-blue.svg)](./LICENSE)
+-->
+
 Short description of the project.
 
 ---
@@ -14,7 +21,19 @@ Describe what this project does and why it exists.
 
 ## 📦 Getting Started
 
+### Prerequisites
+
+<!-- Replace with required tooling, runtimes, or accounts (e.g. Go 1.22+, Docker, etc.). -->
+
+### Installation and usage
+
 Explain how to install, run, or use the project.
+
+---
+
+## 📚 Documentation
+
+<!-- Optional: link to project-specific docs (public URLs only). Remove if not applicable. -->
 
 ---
 
@@ -25,6 +44,8 @@ We welcome contributions!
 Please read [CONTRIBUTING.md](./CONTRIBUTING.md) before submitting a Pull Request.
 
 Please create or link an issue before starting implementation work.
+
+This project follows our [Code of Conduct](./CODE_OF_CONDUCT.md).
 
 ---
 
@@ -60,8 +81,26 @@ internal wikis, or non-public documentation.
 
 ---
 
+## ❓ Getting Help
+
+* For questions and general discussion, use [GitHub Discussions](../../discussions) if enabled for this repository, or see [CONTRIBUTING.md](./CONTRIBUTING.md).
+* For bugs, feature requests, and tasks, please [open an issue](../../issues/new/choose).
+* To report a security vulnerability, do **not** open a public issue — follow [SECURITY.md](./SECURITY.md) instead.
+
+---
+
+## 🧾 Changelog
+
+See [CHANGELOG.md](./CHANGELOG.md) for release history. Entries are generated from
+[Conventional Commits](https://www.conventionalcommits.org/) via `git-cliff`.
+
+---
+
 ## 📄 License
 
 This project is licensed under the terms of the [LICENSE](./LICENSE) file (GNU AGPLv3).
 
 Copyright holder: <!-- Replace with the copyright holder, e.g. "Lamassu IoT" or the project owner -->.
+
+Contributions require a signed Individual or Corporate Contributor License Agreement — see
+[legal/README.md](./legal/README.md) for details.
