@@ -1,8 +1,7 @@
 name: "📋 Task"
 description: Define a concrete, actionable unit of implementation work.
 title: "[Task]: "
-labels:
-  - task
+type: Task
 body:
   - type: markdown
     attributes:
@@ -20,12 +19,19 @@ body:
   - type: textarea
     id: scope
     attributes:
-      label: Scope
-      description: What is in scope and out of scope for this task?
+      label: Implementation scope
+      description: What is in scope for this task?
     validations:
       required: true
   - type: textarea
-    id: acceptance
+    id: out_of_scope
+    attributes:
+      label: Out of scope
+      description: What is explicitly not covered by this task?
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance_criteria
     attributes:
       label: Acceptance criteria
       description: What conditions must be met for this task to be considered done?
@@ -35,9 +41,9 @@ body:
     validations:
       required: true
   - type: textarea
-    id: references
+    id: dependencies
     attributes:
-      label: References
+      label: Dependencies and references
       description: Links to related issues, discussions, or public documentation (public URLs only).
     validations:
       required: false

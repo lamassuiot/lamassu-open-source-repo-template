@@ -89,7 +89,7 @@ Pull request titles are checked automatically by CI against this format.
 * At least one maintainer review is required before merging.
 * Reviewers may request changes; please respond to all review comments.
 * Be respectful and constructive — see our [Code of Conduct](./CODE_OF_CONDUCT.md).
-* See [MAINTAINERS.md](./MAINTAINERS.md) for the current list of maintainers.
+* See [CODEOWNERS](./.github/CODEOWNERS) for who is required to review changes in this repository.
 
 ## Tests and documentation
 

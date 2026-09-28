@@ -1,6 +1,7 @@
 name: "🐛 Bug"
 description: Report a reproducible problem with the project.
 title: "[Bug]: "
+type: Bug
 labels:
   - bug
 body:
@@ -11,31 +12,39 @@ body:
 
         ⚠️ **Do not include credentials, tokens, private keys, customer data, or other confidential information in this issue.**
         If you believe this is a security vulnerability, please follow the process in [SECURITY.md](../../SECURITY.md) instead of filing a public issue.
+  - type: checkboxes
+    id: duplicate_check
+    attributes:
+      label: Duplicate search
+      description: Please confirm you searched for existing issues before opening this one.
+      options:
+        - label: I searched existing issues and did not find a duplicate of this bug.
+          required: true
   - type: textarea
     id: summary
     attributes:
-      label: Summary
-      description: A short, clear description of the bug.
+      label: Summary and impact
+      description: A short, clear description of the bug and who or what it affects.
     validations:
       required: true
   - type: textarea
-    id: expected
-    attributes:
-      label: Expected behavior
-      description: What did you expect to happen?
-    validations:
-      required: true
-  - type: textarea
-    id: actual
+    id: actual_behavior
     attributes:
       label: Actual behavior
       description: What actually happened?
     validations:
       required: true
   - type: textarea
+    id: expected_behavior
+    attributes:
+      label: Expected behavior
+      description: What did you expect to happen instead?
+    validations:
+      required: true
+  - type: textarea
     id: reproduction
     attributes:
-      label: Reproduction steps
+      label: Steps to reproduce
       description: Step-by-step instructions to reproduce the issue.
       placeholder: |
         1. ...
@@ -46,18 +55,35 @@ body:
   - type: input
     id: environment
     attributes:
-      label: Environment
+      label: Environment and affected version
       description: Version, OS, browser, deployment method, etc.
       placeholder: e.g. v1.2.3, Ubuntu 22.04, Docker
     validations:
-      required: false
+      required: true
+  - type: textarea
+    id: resolution_criteria
+    attributes:
+      label: Resolution criteria
+      description: What conditions must be met for this bug to be considered resolved?
+      placeholder: |
+        - [ ] ...
+        - [ ] ...
+    validations:
+      required: true
   - type: textarea
     id: logs
     attributes:
-      label: Logs or screenshots
+      label: Logs, screenshots, or other evidence
       description: |
         Add any relevant logs, stack traces, or screenshots.
         ⚠️ Redact secrets, tokens, private keys, and any customer-identifiable information before pasting.
       render: shell
+    validations:
+      required: false
+  - type: textarea
+    id: references
+    attributes:
+      label: Related issues, pull requests, or references
+      description: Links to related issues, pull requests, or public documentation (public URLs only).
     validations:
       required: false
