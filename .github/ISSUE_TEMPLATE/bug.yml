@@ -1,89 +1,127 @@
-name: "🐛 Bug"
-description: Report a reproducible problem with the project.
+name: Bug report
+description: Report a reproducible problem in the project
 title: "[Bug]: "
-type: Bug
 labels:
   - bug
+  - needs-triage
+type: Bug
+
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to report a bug!
+        Thank you for reporting a problem.
 
-        ⚠️ **Do not include credentials, tokens, private keys, customer data, or other confidential information in this issue.**
-        If you believe this is a security vulnerability, please follow the process in [SECURITY.md](../../SECURITY.md) instead of filing a public issue.
+        Please search existing issues before submitting a new one.
+        Do not include passwords, tokens, private keys, certificates,
+        customer data, personal data, or other confidential information.
+        If this is a security vulnerability, do not report it publicly;
+        follow the security reporting process described in the repository's SECURITY.md file.
+
   - type: checkboxes
-    id: duplicate_check
+    id: checks
     attributes:
-      label: Duplicate search
-      description: Please confirm you searched for existing issues before opening this one.
+      label: Initial checks
       options:
-        - label: I searched existing issues and did not find a duplicate of this bug.
+        - label: I have searched the existing issues.
           required: true
+        - label: I have removed secrets and confidential information from this report.
+          required: true
+
   - type: textarea
     id: summary
     attributes:
-      label: Summary and impact
-      description: A short, clear description of the bug and who or what it affects.
+      label: What happened?
+      description: Describe the problem clearly and concisely.
+      placeholder: |
+        Describe what went wrong.
     validations:
       required: true
+
   - type: textarea
-    id: actual_behavior
+    id: expected
     attributes:
-      label: Actual behavior
-      description: What actually happened?
+      label: What did you expect to happen?
+      description: Describe the expected behavior.
+      placeholder: |
+        Describe what you expected to happen.
     validations:
       required: true
-  - type: textarea
-    id: expected_behavior
-    attributes:
-      label: Expected behavior
-      description: What did you expect to happen instead?
-    validations:
-      required: true
+
   - type: textarea
     id: reproduction
     attributes:
-      label: Steps to reproduce
-      description: Step-by-step instructions to reproduce the issue.
+      label: How can we reproduce it?
+      description: Provide the smallest reproducible example and exact steps.
       placeholder: |
-        1. ...
-        2. ...
-        3. ...
+        1. Configure ...
+        2. Run ...
+        3. Send ...
+        4. Observe ...
     validations:
       required: true
+
+  - type: dropdown
+    id: frequency
+    attributes:
+      label: How often does this happen?
+      options:
+        - Every time
+        - Frequently
+        - Occasionally
+        - Once
+        - Unknown
+    validations:
+      required: true
+
   - type: input
+    id: version
+    attributes:
+      label: Project version or commit
+      description: Provide the released version, image tag, or commit SHA if available.
+      placeholder: "v1.2.3, main@abc1234, or container image tag"
+    validations:
+      required: false
+
+  - type: textarea
     id: environment
     attributes:
-      label: Environment and affected version
-      description: Version, OS, browser, deployment method, etc.
-      placeholder: e.g. v1.2.3, Ubuntu 22.04, Docker
-    validations:
-      required: true
-  - type: textarea
-    id: resolution_criteria
-    attributes:
-      label: Resolution criteria
-      description: What conditions must be met for this bug to be considered resolved?
+      label: Environment
+      description: Include relevant technical details if available.
       placeholder: |
-        - [ ] ...
-        - [ ] ...
+        - Component:
+        - Installation method:
+        - Operating system:
+        - Architecture:
+        - Runtime version:
+        - Kubernetes version:
+        - Database or external services:
     validations:
-      required: true
+      required: false
+
   - type: textarea
     id: logs
     attributes:
-      label: Logs, screenshots, or other evidence
-      description: |
-        Add any relevant logs, stack traces, or screenshots.
-        ⚠️ Redact secrets, tokens, private keys, and any customer-identifiable information before pasting.
+      label: Logs
+      description: Add relevant logs or stack traces. Redact secrets and confidential data.
       render: shell
     validations:
       required: false
+
   - type: textarea
-    id: references
+    id: additional_context
     attributes:
-      label: Related issues, pull requests, or references
-      description: Links to related issues, pull requests, or public documentation (public URLs only).
+      label: Screenshots and additional context
+      description: Add screenshots, links, or other relevant context. Redact secrets and confidential data.
+    validations:
+      required: false
+
+  - type: textarea
+    id: workaround
+    attributes:
+      label: Workaround
+      description: If known, describe any temporary workaround.
+      placeholder: |
+        Is there a temporary workaround?
     validations:
       required: false

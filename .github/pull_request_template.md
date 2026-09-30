@@ -41,9 +41,12 @@ do not use a closing keyword for it, since Strategic Epics are not closed from d
 
 ## CLA verification
 
-See [legal/README.md](../legal/README.md) for the ICLA/CCLA process. This is currently a manual
-verification performed by maintainers (see [legal/cla-maintainer-runbook.md](../legal/cla-maintainer-runbook.md)) — it is not automated.
+Read the [central Lamassu legal documentation](https://github.com/lamassuiot/lamassu-platform/tree/main/legal)
+and [current ICLA and CCLA signing instructions](https://github.com/lamassuiot/lamassu-platform/tree/main/legal/cla).
+Verification is currently manual and is performed by maintainers (see the
+[maintainer process](https://github.com/lamassuiot/lamassu-platform/tree/main/legal/cla-maintainer-runbook.md)); there is no automated CLA service.
 
-- [ ] I have contacted the Lamassu maintainers regarding the applicable ICLA or CCLA.
+- [ ] I am covered by the applicable ICLA or CCLA, based on the capacity in which I am contributing.
+- [ ] If this contribution is covered by a CCLA, I am not also submitting it under the ICLA.
 - [ ] All contributors and co-authors involved in this pull request are identified.
-- [ ] I understand that this pull request cannot be merged until CLA verification is completed.
+- [ ] I understand that private signed agreements and legal evidence must not be included in this pull request.

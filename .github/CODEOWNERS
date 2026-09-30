@@ -2,20 +2,14 @@
 #
 # This file defines default reviewers for changes in this repository.
 #
-# NOTE: The real Lamassu maintainer team handle could not be verified from
-# within this repository template. Replace the placeholder below with the
-# actual GitHub team (e.g. @lamassuiot/<team-name>) before relying on this
-# file for review enforcement.
+# The lamassu-maintainers team owns repository review and governance.
 
 # Changes to repository governance and automation require maintainer review.
-/.github/ @lamassuiot/REPLACE_WITH_MAINTAINER_TEAM
+/.github/ @lamassuiot/lamassu-maintainers
 
-# Changes to CLA agreements, process, and related governance files require maintainer/legal
-# review. No confirmed legal team could be verified from within this template; replace with
-# the real legal/maintainer team once known (see legal/README.md).
-/legal/ @lamassuiot/REPLACE_WITH_MAINTAINER_TEAM
-/CONTRIBUTING.md @lamassuiot/REPLACE_WITH_MAINTAINER_TEAM
-/.github/pull_request_template.md @lamassuiot/REPLACE_WITH_MAINTAINER_TEAM
+# Changes to the CLA process and related governance files require maintainer review.
+/CONTRIBUTING.md @lamassuiot/lamassu-maintainers
+/.github/pull_request_template.md @lamassuiot/lamassu-maintainers
 
 # Default owners for everything else.
-* @lamassuiot/REPLACE_WITH_MAINTAINER_TEAM
+* @lamassuiot/lamassu-maintainers

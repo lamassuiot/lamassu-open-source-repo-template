@@ -1,11 +1,3 @@
+# Repository-specific Discussions and Security Advisory links should be added after
+# instantiating a repository from this template.
 blank_issues_enabled: false
-# contact_links entries require absolute URLs (relative links are not supported here).
-# The org is fixed to lamassuiot; replace REPLACE_WITH_REPO with this repository's
-# actual name, or remove an entry if the linked feature (e.g. Discussions) is not enabled.
-contact_links:
-  - name: Ask a Question or Start a Discussion
-    url: https://github.com/lamassuiot/REPLACE_WITH_REPO/discussions
-    about: Questions and general discussions belong in GitHub Discussions, not GitHub Issues.
-  - name: Report a Security Vulnerability
-    url: https://github.com/lamassuiot/REPLACE_WITH_REPO/security/advisories/new
-    about: Please report security vulnerabilities privately. Do not open a public issue. See SECURITY.md.

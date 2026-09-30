@@ -2,10 +2,14 @@ name: "📋 Task"
 description: Define a concrete, actionable unit of implementation work.
 title: "[Task]: "
 type: Task
+labels:
+  - needs-triage
 body:
   - type: markdown
     attributes:
       value: |
+        This form is intended for maintainers and Product Owners to define actionable engineering work.
+
         Thanks for filing a task!
 
         ⚠️ **Do not include credentials, tokens, private keys, customer data, or other confidential information in this issue.**
@@ -36,8 +40,8 @@ body:
       label: Acceptance criteria
       description: What conditions must be met for this task to be considered done?
       placeholder: |
-        - [ ] ...
-        - [ ] ...
+        - [ ] Criterion 1
+        - [ ] Criterion 2
     validations:
       required: true
   - type: textarea
