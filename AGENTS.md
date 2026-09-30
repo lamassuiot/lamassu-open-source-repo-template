@@ -76,6 +76,52 @@ When creating a repository from this template, complete these steps in order:
    - Test the issue-template chooser in the instantiated repository.
    - Review the final diff and confirm that unrelated template or user changes were preserved.
 
+## CODEOWNERS and review protection
+
+This template is intended primarily for public repositories in the `lamassuiot` organization.
+The default code owner is:
+
+```text
+@lamassuiot/lamassu-maintainers
+```
+
+The documented default rule is:
+
+```text
+* @lamassuiot/lamassu-maintainers
+```
+
+When instantiating the template, verify that:
+
+- The `lamassu-maintainers` team exists.
+- The team has explicit write access to the generated repository.
+- The repository belongs to the expected organization.
+- The `CODEOWNERS` file is located at a GitHub-supported path, such as
+  `.github/CODEOWNERS`, `CODEOWNERS`, or `docs/CODEOWNERS`.
+
+If the repository belongs to another organization, replace the owner with a verified team from
+that organization. Never invent a team name, handle, or access assignment. CODEOWNERS paths are
+case-sensitive.
+
+The maintainer team owns general repository changes and governance files, including:
+
+- `.github/`
+- `CODEOWNERS`
+- `AGENTS.md`
+- `SECURITY.md`
+- `CONTRIBUTING.md`
+- `LICENSE`
+
+CODEOWNERS only requests or identifies reviewers. It does not by itself prevent merging. After
+creating the repository, configure a branch ruleset for `main` that requires:
+
+- Pull requests.
+- Required status checks where applicable.
+- Approval from Code Owners before merging.
+
+Verify that the branch ruleset is configured after repository creation. Report any missing team
+access, missing branch protection, or unresolved organization-specific configuration.
+
 ## Placeholder conventions
 
 Use explicit, searchable placeholders when verified information is unavailable:
@@ -127,6 +173,44 @@ Expected behavior:
 
 Issue forms do not create missing labels automatically. Labels must be configured in the
 repository or supplied as organization default labels before the forms can apply them.
+
+## Dependabot configuration
+
+Dependabot configuration is repository-specific. Do not copy a single configuration blindly
+between Go, frontend, infrastructure, container, or other repositories.
+
+When instantiating a repository from this template:
+
+1. Inspect the generated repository for dependency manifests before creating a configuration.
+2. Detect ecosystems from files that actually exist; do not infer an ecosystem from the project
+   name, owning domain, or expected technology.
+3. Create `.github/dependabot.yml` only when at least one supported dependency manifest or GitHub
+   Actions workflow exists. Do not create it when no supported dependency source is present.
+4. Configure the correct directory for each detected manifest. Use `/` for a root-level manifest
+   and the manifest's actual subdirectory for nested projects or workspaces.
+5. Use the matching Dependabot ecosystem when applicable, including:
+   - `go.mod` → `gomod`
+   - `package.json` → `npm`
+   - `Dockerfile` → `docker`
+   - `requirements.txt` or `pyproject.toml` → `pip`
+   - Terraform files or `.terraform.lock.hcl` → `terraform`
+   - `.github/workflows/` → `github-actions`
+   - Other ecosystems supported by Dependabot when their manifests are detected.
+6. Use a weekly update schedule unless the repository owner justifies another frequency.
+7. Set a reasonable `open-pull-requests-limit`, such as `5`, for each update configuration.
+8. Group compatible dependency updates when doing so is appropriate for the repository.
+9. Do not hard-code registries, reviewers, assignees, target branches, or repository-specific
+   URLs without explicit confirmation.
+10. Do not use the `needs-triage` label for Dependabot pull requests. Use the default
+    `dependencies` label, or another label only when it already exists or is explicitly created.
+11. Dependabot alerts and security updates are separate settings. Enable them separately in the
+    repository or organization settings when required; a `dependabot.yml` file alone does not
+    enable those features.
+12. Validate the generated `.github/dependabot.yml` after creating it, including YAML syntax,
+    ecosystem names, manifest directories, schedules, limits, grouping, and labels.
+
+A generated repository may need no Dependabot configuration at all. The absence of
+`.github/dependabot.yml` is correct when no supported dependency manifest or workflow is present.
 
 ## GitHub Projects and automation
 
