@@ -1,15 +1,18 @@
 # CODEOWNERS
 #
-# This file defines default reviewers for changes in this repository.
-#
+# Default reviewers for Lamassu public repositories.
 # The lamassu-maintainers team owns repository review and governance.
+#
+# This template is intended for repositories in the lamassuiot organization.
+# The team must have explicit write access to each generated repository.
 
-# Changes to repository governance and automation require maintainer review.
-/.github/ @lamassuiot/lamassu-maintainers
-
-# Changes to the CLA process and related governance files require maintainer review.
-/CONTRIBUTING.md @lamassuiot/lamassu-maintainers
-/.github/pull_request_template.md @lamassuiot/lamassu-maintainers
-
-# Default owners for everything else.
+# All repository changes require Lamassu maintainer review.
 * @lamassuiot/lamassu-maintainers
+
+# Repository governance, automation, security, and contribution configuration.
+/.github/ @lamassuiot/lamassu-maintainers
+/AGENTS.md @lamassuiot/lamassu-maintainers
+/CODEOWNERS @lamassuiot/lamassu-maintainers
+/CONTRIBUTING.md @lamassuiot/lamassu-maintainers
+/SECURITY.md @lamassuiot/lamassu-maintainers
+/LICENSE @lamassuiot/lamassu-maintainers
