@@ -1,3 +1,13 @@
+## Pull Request title
+
+Pull Request titles must follow the Conventional Commits format. Valid examples include:
+
+- `feat: add device discovery`
+- `fix(api): handle expired certificate`
+- `docs: update installation guide`
+
+The title is validated automatically, and the title-lint workflow must pass before merging.
+
 ## Summary
 
 <!-- Describe what this PR changes and why. -->
