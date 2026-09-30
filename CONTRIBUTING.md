@@ -9,18 +9,27 @@ This project and everyone participating in it is governed by our [Code of Conduc
 
 ## Contributor License Agreement
 
-This project requires every contributor and co-author on a pull request to be covered by a
-signed Individual Contributor License Agreement (ICLA) or Corporate Contributor License
-Agreement (CCLA) before that pull request can be merged. This is currently a **manual**
-verification process — see [legal/README.md](./legal/README.md) for the agreements, how to
-request one, and how signed agreements are handled.
+Before a contribution can be accepted, the contributor must use the agreement that matches the
+capacity in which the contribution is made:
 
-<!-- The agreement text linked from legal/README.md is currently a legal-review draft. Update
-     this note once the agreements are approved by legal counsel. -->
+- Individual contributors acting solely on their own behalf must accept the ICLA.
+- Contributions made by employees, contractors, or other representatives of an organization
+  must be covered by the organization's CCLA.
+- A contribution covered by a CCLA must not also be submitted under the ICLA.
+- The ICLA and CCLA text, current versions, and signing instructions are maintained centrally in
+  the Lamassu platform repository.
+
+Read the current agreements and signing instructions:
+
+- [Lamassu legal documentation](https://github.com/lamassuiot/lamassu-platform/tree/main/legal)
+- [ICLA and CCLA](https://github.com/lamassuiot/lamassu-platform/tree/main/legal/cla)
+
+Signed agreements, contributor identity data, corporate authorization evidence, and other private
+legal records must not be committed to this repository or submitted through public issues or pull
+requests.
 
 CLA verification is mandatory before merging, in addition to normal code review and required
-status checks. See [legal/cla-maintainer-runbook.md](./legal/cla-maintainer-runbook.md) for the
-maintainer-side process.
+status checks. Maintainers follow the [manual verification process](https://github.com/lamassuiot/lamassu-platform/tree/main/legal/cla-maintainer-runbook.md).
 
 ## Workflow overview
 
