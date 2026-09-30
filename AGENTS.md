@@ -184,6 +184,48 @@ Repository settings and rulesets cannot be enforced only by files committed to t
 They require administrator configuration. Verify that the ruleset targets the protected default
 branch and any protected release branches, and report any missing manual configuration.
 
+## Contributor License Agreement Documentation
+
+The Pull Request template must remain concise. It must not contain the full ICLA or CCLA text,
+private repositories, private signing records, legal evidence, or references to an automated CLA
+service. Contributor-facing CLA documentation belongs in `CONTRIBUTING.md`; public repositories
+should contain only references and contributor instructions. The legal text and signing process are
+centrally managed.
+
+The intended public locations for the current legal documents and maintainer process are:
+
+```text
+https://github.com/lamassuiot/lamassuiot/tree/main/legal/cla
+https://github.com/lamassuiot/lamassuiot/blob/main/legal/cla/cla-maintainer-runbook.md
+```
+
+Agents must verify that these paths exist before adding them as working contributor-facing links.
+If either path is unavailable, do not claim that it is valid and do not invent a replacement path.
+Report the missing path and leave the contributor-facing link unchanged until the public location is
+confirmed.
+
+The CLA process is:
+
+- Individual contributors must use the ICLA when contributing personally.
+- Contributors acting on behalf of an organization must be covered by the applicable CCLA.
+- A person whose contribution is covered by a CCLA must not also submit the same contribution under
+  the ICLA.
+- CLA verification is currently manual and is performed by Lamassu maintainers.
+- Signed agreements, private legal evidence, employment documents, and contributor records must
+  never be added to Pull Requests, Issues, public repositories, public project boards, or public
+  comments.
+- Checking the CLA boxes in a Pull Request is only a contributor declaration; it does not replace
+  maintainer verification.
+
+Agents must not:
+
+- Copy the full ICLA or CCLA into target repositories.
+- Create or modify signed legal agreements.
+- Invent legal wording.
+- Link to the private `lamassu-platform` legal directory.
+- Claim that a contributor is legally covered without maintainer verification.
+- Replace the manual CLA process with an automated CLA service unless explicitly instructed.
+
 ## Placeholder conventions
 
 Use explicit, searchable placeholders when verified information is unavailable:
