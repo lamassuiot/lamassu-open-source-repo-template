@@ -9,6 +9,10 @@ workflows that can be instantiated for a specific Lamassu project.
 Do not treat this repository as a finished project. Before publishing a repository created from
 this template, replace or confirm every repository-specific value.
 
+The generic template must not contain a technology-specific `.devcontainer/devcontainer.json`.
+Dev Container configuration is generated only after repository instantiation. The generated
+repository must add `.devcontainer/` to the normal CODEOWNERS review scope.
+
 ## Information integrity
 
 Never invent or guess any of the following:
@@ -113,7 +117,8 @@ The maintainer team owns general repository changes and governance files, includ
 - `LICENSE`
 
 CODEOWNERS only requests or identifies reviewers. It does not by itself prevent merging. After
-creating the repository, configure a branch ruleset for `main` that requires:
+creating the repository, configure a branch ruleset for the repository's protected default branch
+and protected release branches, when applicable, that requires:
 
 - Pull requests.
 - Required status checks where applicable.
@@ -121,6 +126,63 @@ creating the repository, configure a branch ruleset for `main` that requires:
 
 Verify that the branch ruleset is configured after repository creation. Report any missing team
 access, missing branch protection, or unresolved organization-specific configuration.
+
+### Commit signing and Pull Request titles
+
+Pull Request titles must follow the Conventional Commits format. This policy applies to Pull
+Request titles; it does not necessarily require every commit message to use that format.
+
+Use this format:
+
+```text
+<type>[optional scope][!]: <description>
+```
+
+Accepted types are:
+
+- `feat`
+- `fix`
+- `docs`
+- `style`
+- `refactor`
+- `perf`
+- `test`
+- `build`
+- `ci`
+- `chore`
+- `revert`
+
+Optional scopes are allowed. Breaking changes may use `!`, for example:
+
+```text
+feat(api)!: change enrollment contract
+```
+
+Agents must create Pull Request titles that follow this format. Agents must not generate, copy,
+store, or expose private signing keys. Agents may use commit signing only when it is already
+configured in the contributor's environment. Agents must not automatically create a new signing
+key.
+
+Signed commits must be enforced through GitHub branch protection or repository rulesets, not only
+through agent instructions. The policy should apply primarily to the repository's protected default
+branch and protected release branches, when applicable.
+
+After repository creation, configure repository settings or rulesets to require:
+
+- Pull Requests.
+- Required status checks.
+- Required Code Owner approval.
+- Required signed commits on protected branches.
+- The PR-title lint workflow as a required status check.
+
+Conventional Commit Pull Request titles are enforced by this required status check. Configure the
+lint workflow's stable check name in the applicable GitHub ruleset for the protected default branch
+and any protected release branches, when applicable. The title-lint workflow is fork-safe because
+it uses `pull_request_target` without checking out or executing contributor code.
+
+Repository settings and rulesets cannot be enforced only by files committed to the repository.
+They require administrator configuration. Verify that the ruleset targets the protected default
+branch and any protected release branches, and report any missing manual configuration.
 
 ## Placeholder conventions
 
@@ -199,18 +261,54 @@ When instantiating a repository from this template:
 6. Use a weekly update schedule unless the repository owner justifies another frequency.
 7. Set a reasonable `open-pull-requests-limit`, such as `5`, for each update configuration.
 8. Group compatible dependency updates when doing so is appropriate for the repository.
-9. Do not hard-code registries, reviewers, assignees, target branches, or repository-specific
-   URLs without explicit confirmation.
+9. Do not hard-code registries, reviewers, assignees, target branches, repository-specific URLs,
+   or organization-specific secrets without explicit confirmation.
 10. Do not use the `needs-triage` label for Dependabot pull requests. Use the default
     `dependencies` label, or another label only when it already exists or is explicitly created.
-11. Dependabot alerts and security updates are separate settings. Enable them separately in the
+11. Configure Dependabot pull-request titles to comply with the repository's Conventional Commit
+    policy. For example:
+
+    ```yaml
+    commit-message:
+      prefix: "chore"
+    ```
+
+12. Dependabot alerts and security updates are separate settings. Enable them separately in the
     repository or organization settings when required; a `dependabot.yml` file alone does not
     enable those features.
-12. Validate the generated `.github/dependabot.yml` after creating it, including YAML syntax,
+13. Validate the generated `.github/dependabot.yml` after creating it, including YAML syntax,
     ecosystem names, manifest directories, schedules, limits, grouping, and labels.
 
-A generated repository may need no Dependabot configuration at all. The absence of
+The generic template intentionally does not contain a fixed Dependabot configuration. Dependabot
+configuration is generated only after repository instantiation and must match the actual technology
+stack. A generated repository may need no Dependabot configuration at all. The absence of
 `.github/dependabot.yml` is correct when no supported dependency manifest or workflow is present.
+Security alerts and security updates can still be enabled independently in GitHub settings without
+a `dependabot.yml` file.
+
+## Development container
+
+Dev Container configuration is repository-specific. Do not hardcode it into this generic template,
+because generated repositories may use Go, frontend technologies, Python, Terraform, or other
+technology stacks.
+
+When instantiating a repository from this template:
+
+1. Inspect the generated repository before creating a Dev Container.
+2. Detect the language, framework, package manager, build tools, and required services from the
+   actual repository files.
+3. Create `.devcontainer/devcontainer.json` only when a useful project-specific configuration can
+   be defined.
+4. Use official Dev Container Templates and Features where appropriate.
+5. Do not assume Go, Node.js, Python, Terraform, or any other technology.
+6. Do not add unnecessary tools or personal editor preferences.
+7. Never include credentials, tokens, private keys, customer data, or other secrets.
+8. Pin container images and Feature versions where practical.
+9. Keep Dockerfiles, compose files, and setup scripts next to the related `devcontainer.json`.
+10. Validate the configuration by building the development container.
+11. If the technology stack cannot be determined reliably, do not create a Dev Container
+    configuration; document that decision instead.
+12. Report the generated configuration and any manual setup still required.
 
 ## GitHub Projects and automation
 
