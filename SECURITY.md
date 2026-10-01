@@ -9,10 +9,8 @@ Instead, please report vulnerabilities privately using
 [GitHub Security Advisories](../../security/advisories/new) for this repository. This allows
 maintainers to assess and address the issue before it is publicly disclosed.
 
-If private security reporting is not enabled for this repository, please contact the
-maintainers through a private channel before disclosing any details publicly.
-<!-- Replace with a confirmed public security contact (e.g. a security mailing list)
-     if one is established for this project. Do not invent an email address or URL. -->
+If private vulnerability reporting is not enabled for this repository, report the vulnerability
+privately to <REPLACE_WITH_SECURITY_CONTACT> before disclosing any details publicly.
 
 When reporting, please avoid including:
 
@@ -25,12 +23,7 @@ using non-sensitive, redacted examples.
 
 ## Supported versions
 
-<!-- Replace with the actual supported version policy for this project. -->
-
-| Version | Supported |
-| ------- | --------- |
-| latest  | ✅        |
-| older   | ❌        |
+<REPLACE_WITH_SUPPORTED_VERSION_POLICY>
 
 ## Responsible disclosure
 

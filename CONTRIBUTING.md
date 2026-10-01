@@ -36,7 +36,7 @@ Strategic planning is managed centrally. Implementation work is created in this
 repository as **Features**, **Tasks**, or **Bugs**. All changes are submitted through
 **Pull Requests**.
 
-```
+```text
 Strategic initiative → Feature / Task / Bug → Branch → Pull Request → Review → Merge
 ```
 
@@ -63,48 +63,55 @@ objective, scope, and acceptance criteria.
 
 ## Branch naming
 
-Use a short, descriptive branch name prefixed by the type of change, for example:
+Use a short, descriptive branch name prefixed by the Conventional Commit type of the change, for
+example:
 
-```
-feature/<short-description>
-task/<short-description>
-bugfix/<short-description>
+```text
+feat/<short-description>
+fix/<short-description>
+docs/<short-description>
+chore/<short-description>
 ```
 
 ## Commit messages and PR titles
 
-This repository uses [git-cliff](https://git-cliff.org/) (see [`cliff.toml`](./cliff.toml)) to
-generate [`CHANGELOG.md`](./CHANGELOG.md) from commit history, based on
-[Conventional Commits](https://www.conventionalcommits.org/). Format your commit messages (or
-your pull request title, if this repository squash-merges pull requests) as:
+Pull requests are squash-merged, so the pull request title becomes the commit subject on the
+default branch. This repository uses [git-cliff](https://git-cliff.org/) (see
+[`cliff.toml`](./cliff.toml)) to generate [`CHANGELOG.md`](./CHANGELOG.md) from those commits,
+based on [Conventional Commits](https://www.conventionalcommits.org/). Format your pull request
+title as:
 
-```
+```text
 <type>[optional scope][!]: <description>
 ```
 
 Accepted types are: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`,
 `chore`, and `revert`. Scopes are optional. Use `!` before the colon to indicate a breaking
 change, for example `feat(api)!: change enrollment contract`. Pull request titles are checked
-automatically by the title-lint workflow against this format.
+automatically by the title-lint workflow against this format. Individual commits inside a pull
+request do not need to follow this format.
+
+Maintainers regenerate the changelog when preparing a release, for example with
+`git cliff --tag vX.Y.Z --output CHANGELOG.md`.
 
 ## Pull requests
 
-* Keep PRs small, focused, and reviewable.
-* Fill out the [pull request template](./.github/pull_request_template.md) completely.
-* Reference the issue the PR addresses (e.g. `Closes #123`).
-* Ensure CI checks pass before requesting review.
+- Keep PRs small, focused, and reviewable.
+- Fill out the [pull request template](./.github/pull_request_template.md) completely.
+- Reference the issue the PR addresses (e.g. `Closes #123`).
+- Ensure CI checks pass before requesting review.
 
 ## Review expectations
 
-* At least one maintainer review is required before merging.
-* Reviewers may request changes; please respond to all review comments.
-* Be respectful and constructive — see our [Code of Conduct](./CODE_OF_CONDUCT.md).
-* See [CODEOWNERS](./.github/CODEOWNERS) for who is required to review changes in this repository.
+- At least one maintainer review is required before merging.
+- Reviewers may request changes; please respond to all review comments.
+- Be respectful and constructive — see our [Code of Conduct](./CODE_OF_CONDUCT.md).
+- See [CODEOWNERS](./.github/CODEOWNERS) for who is required to review changes in this repository.
 
 ## Tests and documentation
 
-* Add or update tests for any behavioral change.
-* Update relevant documentation (README, code comments, etc.) alongside code changes.
+- Add or update tests for any behavioral change.
+- Update relevant documentation (README, code comments, etc.) alongside code changes.
 
 ## Avoiding secrets and confidential information
 
@@ -116,7 +123,7 @@ immediately so it can be rotated and removed from history.
 
 Use GitHub's closing keywords in your PR description to link work to its issue, for example:
 
-```
+```text
 Closes #123
 Fixes #123
 Relates to #123

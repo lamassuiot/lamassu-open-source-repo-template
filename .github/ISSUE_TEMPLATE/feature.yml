@@ -1,6 +1,5 @@
 name: "✨ Feature"
 description: Propose a new capability or enhancement.
-title: "[Feature]: "
 type: Feature
 labels:
   - enhancement
@@ -49,7 +48,7 @@ body:
       label: Non-goals
       description: What is explicitly out of scope for this feature?
     validations:
-      required: true
+      required: false
   - type: textarea
     id: acceptance_criteria
     attributes:
@@ -59,7 +58,7 @@ body:
         - [ ] ...
         - [ ] ...
     validations:
-      required: true
+      required: false
   - type: textarea
     id: dependencies
     attributes:

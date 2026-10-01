@@ -20,13 +20,11 @@ If this work relates to a Strategic Epic tracked centrally, link it for context 
 do not use a closing keyword for it, since Strategic Epics are not closed from domain repository PRs.
 -->
 
-## Change type
+## Breaking change
 
-- [ ] Bug fix
-- [ ] Feature
-- [ ] Task / chore
-- [ ] Documentation
-- [ ] Other (describe the change type above)
+- [ ] This PR introduces a breaking change. The title uses `!` (for example,
+  `feat(api)!: change enrollment contract`), and the summary describes the impact and migration
+  steps.
 
 ## Testing performed
 
@@ -51,7 +49,7 @@ do not use a closing keyword for it, since Strategic Epics are not closed from d
 
 ## CLA verification
 
-- [ ] I have completed the applicable Lamassu CLA process described in `CONTRIBUTING.md`.
+- [ ] I have completed the applicable Lamassu CLA process described in [CONTRIBUTING.md](../blob/HEAD/CONTRIBUTING.md#contributor-license-agreement).
 - [ ] I am contributing under the correct capacity: ICLA or CCLA.
 - [ ] If covered by a CCLA, I am not also submitting this contribution under the ICLA.
 - [ ] All contributors and co-authors are identified.

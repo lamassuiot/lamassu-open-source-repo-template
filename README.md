@@ -1,6 +1,4 @@
-# Project Name
-
-<!-- Replace with project name -->
+# <REPLACE_WITH_REPOSITORY_NAME>
 
 <!--
 Optional: badges commonly used across Lamassu Open Source repos, e.g. license, build status,
@@ -9,13 +7,13 @@ latest release. Remove this block if not applicable to this repository.
 [![License](https://img.shields.io/badge/license-AGPL--3.0-blue.svg)](./LICENSE)
 -->
 
-Short description of the project.
+<REPLACE_WITH_REPOSITORY_DESCRIPTION>
 
 ---
 
 ## 🚀 Overview
 
-Describe what this project does and why it exists.
+<REPLACE_WITH_PROJECT_OVERVIEW>
 
 ---
 
@@ -23,11 +21,11 @@ Describe what this project does and why it exists.
 
 ### Prerequisites
 
-<!-- Replace with required tooling, runtimes, or accounts (e.g. Go 1.22+, Docker, etc.). -->
+<REPLACE_WITH_PREREQUISITES>
 
 ### Installation and usage
 
-Explain how to install, run, or use the project.
+<REPLACE_WITH_INSTALLATION_AND_USAGE>
 
 ---
 
@@ -60,9 +58,10 @@ This repository follows the Lamassu Open Source engineering workflow.
 * All changes are submitted through **Pull Requests**.
 * Every PR should reference the issue it addresses, for example:
 
-  ```
+  ```text
   Closes #<issue>
   ```
+
 * Keep changes **small, focused, and reviewable**.
 
 ### 👥 Ownership
@@ -99,7 +98,7 @@ See [CHANGELOG.md](./CHANGELOG.md) for release history. Entries are generated fr
 
 This project is licensed under the terms of the [LICENSE](./LICENSE) file (GNU AGPLv3).
 
-Copyright holder: <!-- Replace with the copyright holder, e.g. "Lamassu IoT" or the project owner -->.
+Copyright holder: <REPLACE_WITH_COPYRIGHT_HOLDER>.
 
 Contributions require the applicable ICLA or CCLA. Read the [current Lamassu CLA
 agreements and signing instructions](https://cla.developers.lamassu.cloud/).
