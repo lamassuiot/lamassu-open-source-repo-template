@@ -29,6 +29,14 @@ If required information is missing, ask the repository owner for it. If the work
 without an answer, leave an explicit `TODO` or a clearly named placeholder such as
 `<REPLACE_WITH_REPOSITORY_NAME>`. Do not silently substitute plausible-looking information.
 
+## Repository tooling
+
+Use the Serena MCP tools for repository navigation, symbol search, code understanding, and related
+analysis when Serena is available in the agent environment. If Serena is unavailable or does not
+support the required operation, use the repository's standard tools, such as `rg`, `git`, and the
+available build or validation commands. Do not assume that Serena or any other optional MCP server
+is installed.
+
 ## Instantiation workflow
 
 When creating a repository from this template, complete these steps in order:
@@ -192,17 +200,11 @@ service. Contributor-facing CLA documentation belongs in `CONTRIBUTING.md`; publ
 should contain only references and contributor instructions. The legal text and signing process are
 centrally managed.
 
-The intended public locations for the current legal documents and maintainer process are:
-
-```text
-https://github.com/lamassuiot/lamassuiot/tree/main/legal/cla
-https://github.com/lamassuiot/lamassuiot/blob/main/legal/cla/cla-maintainer-runbook.md
-```
-
-Agents must verify that these paths exist before adding them as working contributor-facing links.
-If either path is unavailable, do not claim that it is valid and do not invent a replacement path.
-Report the missing path and leave the contributor-facing link unchanged until the public location is
-confirmed.
+The current legal documents and maintainer process are centrally managed through the
+[Lamassu CLA portal](https://cla.developers.lamassu.cloud/). Agents must verify the authoritative
+portal or public legal location before adding contributor-facing links. If the authoritative
+location is unavailable or unclear, do not claim that a link is valid and do not invent a replacement
+path. Report the uncertainty and leave the contributor-facing link unchanged until it is confirmed.
 
 The CLA process is:
 

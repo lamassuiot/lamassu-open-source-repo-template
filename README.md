@@ -101,8 +101,7 @@ This project is licensed under the terms of the [LICENSE](./LICENSE) file (GNU A
 
 Copyright holder: <!-- Replace with the copyright holder, e.g. "Lamassu IoT" or the project owner -->.
 
-Contributions require the applicable ICLA or CCLA. Read the [central Lamassu legal
-documentation](https://github.com/lamassuiot/lamassu-platform/tree/main/legal) and the
-[current ICLA and CCLA signing instructions](https://github.com/lamassuiot/lamassu-platform/tree/main/legal/cla).
+Contributions require the applicable ICLA or CCLA. Read the [current Lamassu CLA
+agreements and signing instructions](https://cla.developers.lamassu.cloud/).
 
 Third-party attributions, where applicable, are recorded in [NOTICE](./NOTICE).

@@ -17,19 +17,18 @@ capacity in which the contribution is made:
   must be covered by the organization's CCLA.
 - A contribution covered by a CCLA must not also be submitted under the ICLA.
 - The ICLA and CCLA text, current versions, and signing instructions are maintained centrally in
-  the Lamassu platform repository.
+  the Lamassu CLA portal.
 
 Read the current agreements and signing instructions:
 
-- [Lamassu legal documentation](https://github.com/lamassuiot/lamassu-platform/tree/main/legal)
-- [ICLA and CCLA](https://github.com/lamassuiot/lamassu-platform/tree/main/legal/cla)
+- [Lamassu CLA portal](https://cla.developers.lamassu.cloud/)
 
 Signed agreements, contributor identity data, corporate authorization evidence, and other private
 legal records must not be committed to this repository or submitted through public issues or pull
 requests.
 
 CLA verification is mandatory before merging, in addition to normal code review and required
-status checks. Maintainers follow the [manual verification process](https://github.com/lamassuiot/lamassu-platform/tree/main/legal/cla-maintainer-runbook.md).
+status checks. Maintainers follow the manual verification process in the [Lamassu CLA portal](https://cla.developers.lamassu.cloud/).
 
 ## Workflow overview
 
@@ -80,11 +79,13 @@ generate [`CHANGELOG.md`](./CHANGELOG.md) from commit history, based on
 your pull request title, if this repository squash-merges pull requests) as:
 
 ```
-<type>[optional scope]: <description>
+<type>[optional scope][!]: <description>
 ```
 
-Common types: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, `chore`.
-Pull request titles are checked automatically by CI against this format.
+Accepted types are: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`,
+`chore`, and `revert`. Scopes are optional. Use `!` before the colon to indicate a breaking
+change, for example `feat(api)!: change enrollment contract`. Pull request titles are checked
+automatically by the title-lint workflow against this format.
 
 ## Pull requests
 
