@@ -9,22 +9,29 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   validate:
     name: Validate repository template
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Checkout
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Set up Python
-        uses: actions/setup-python@v7
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: "3.x"
 
+      - name: Install validation tools
+        run: python -m pip install --quiet pyyaml==6.0.3 check-jsonschema==0.38.2
+
       - name: Validate YAML syntax
         run: |
-          python -m pip install --quiet pyyaml
           python - <<'PYEOF'
           import sys
           import pathlib
@@ -49,6 +56,17 @@ jobs:
                   print(f"::error file={path}::Invalid YAML: {exc}")
           sys.exit(1 if failed else 0)
           PYEOF
+
+      - name: Validate GitHub configuration schemas
+        run: |
+          find .github/ISSUE_TEMPLATE -name '*.y*ml' ! -name 'config.y*ml' \
+            -exec check-jsonschema --builtin-schema vendor.github-issue-forms {} +
+          check-jsonschema --builtin-schema vendor.github-issue-config .github/ISSUE_TEMPLATE/config.yml
+          find .github/workflows -name '*.y*ml' \
+            -exec check-jsonschema --builtin-schema vendor.github-workflows {} +
+          if [ -f .github/dependabot.yml ]; then
+            check-jsonschema --builtin-schema vendor.dependabot .github/dependabot.yml
+          fi
 
       - name: Check required template files exist
         run: |
@@ -81,9 +99,38 @@ jobs:
             exit 1
           fi
 
-      - name: Basic Markdown quality check
+      - name: Check for unresolved placeholders
+        # The template itself legitimately contains placeholders; generated repositories must not.
+        if: ${{ !github.event.repository.is_template }}
         run: |
-          npx --yes markdownlint-cli "**/*.md" --ignore node_modules --ignore .git || true
+          set -e
+          matches=$(grep -RInE '<REPLACE_WITH_[A-Z_]+>' --exclude-dir=.git --exclude=AGENTS.md --exclude=TEMPLATE.md . || true)
+          if [ -n "$matches" ]; then
+            echo "::error::Unresolved template placeholders found:"
+            echo "$matches"
+            exit 1
+          fi
+
+      - name: Check template-only files were removed
+        if: ${{ !github.event.repository.is_template }}
+        run: |
+          found=0
+          for f in TEMPLATE.md scripts/configure-repository.sh; do
+            if [ -e "$f" ]; then
+              echo "::error file=$f::Template-only file must be deleted after instantiation: $f"
+              found=1
+            fi
+          done
+          exit $found
+
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "24"
+
+      - name: Lint Markdown
+        run: |
+          npx --yes markdownlint-cli@0.49.1 "**/*.md" --ignore node_modules --ignore .git
 
       - name: Scan for likely private URLs or hostnames
         run: |
@@ -92,17 +139,6 @@ jobs:
           matches=$(grep -RInE "$pattern" --exclude-dir=.git . || true)
           if [ -n "$matches" ]; then
             echo "::error::Possible private/internal URL reference found:"
-            echo "$matches"
-            exit 1
-          fi
-
-      - name: Scan for obvious credentials or private keys
-        run: |
-          set -e
-          pattern='(-----BEGIN (RSA|EC|OPENSSH|PGP|DSA) PRIVATE KEY-----|AKIA[0-9A-Z]{16}|ghp_[A-Za-z0-9]{20,}|xox[baprs]-[0-9A-Za-z-]{10,})'
-          matches=$(grep -RInE "$pattern" --exclude-dir=.git . || true)
-          if [ -n "$matches" ]; then
-            echo "::error::Possible credential or private key found:"
             echo "$matches"
             exit 1
           fi

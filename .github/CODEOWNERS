@@ -12,7 +12,9 @@
 # Repository governance, automation, security, and contribution configuration.
 /.github/ @lamassuiot/lamassu-maintainers
 /AGENTS.md @lamassuiot/lamassu-maintainers
-/CODEOWNERS @lamassuiot/lamassu-maintainers
+/CODE_OF_CONDUCT.md @lamassuiot/lamassu-maintainers
 /CONTRIBUTING.md @lamassuiot/lamassu-maintainers
 /SECURITY.md @lamassuiot/lamassu-maintainers
 /LICENSE @lamassuiot/lamassu-maintainers
+/NOTICE @lamassuiot/lamassu-maintainers
+/cliff.toml @lamassuiot/lamassu-maintainers

@@ -64,13 +64,10 @@ Tensions can occur between community members even when they are trying their bes
 Not every conflict represents a Code of Conduct violation, and this Code of Conduct reinforces
 behaviors and norms that can help avoid conflicts and minimize harm.
 
-When an incident occurs, report it promptly to the community leaders responsible for enforcement
-through the repository's [GitHub Issues](../../issues) or [GitHub Discussions](../../discussions).
-For reports involving sensitive information, use a private [GitHub Security
-Advisory](../../security/advisories/new) instead. Do not include confidential information in a
-public report.
-
-<!-- Replace with a confirmed dedicated enforcement contact once one is established. -->
+When an incident occurs, report it promptly and privately to the community leaders responsible
+for enforcement at <REPLACE_WITH_CONDUCT_CONTACT>. Do not report Code of Conduct incidents through
+public issues, discussions, or pull requests, and do not use GitHub Security Advisories, which are
+reserved for security vulnerabilities.
 
 Community moderators take reports seriously and will make every effort to respond in a timely
 manner. They will investigate reports, review relevant evidence, and keep investigation and

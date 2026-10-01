@@ -1,6 +1,5 @@
 name: "📋 Task"
 description: Define a concrete, actionable unit of implementation work.
-title: "[Task]: "
 type: Task
 labels:
   - needs-triage

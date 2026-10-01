@@ -9,6 +9,10 @@ workflows that can be instantiated for a specific Lamassu project.
 Do not treat this repository as a finished project. Before publishing a repository created from
 this template, replace or confirm every repository-specific value.
 
+`TEMPLATE.md` is the human-facing instantiation guide, and `scripts/configure-repository.sh`
+applies the baseline GitHub settings. Both files are template-only and must be deleted from the
+generated repository after instantiation; the `Validate Template` workflow fails while they remain.
+
 The generic template must not contain a technology-specific `.devcontainer/devcontainer.json`.
 Dev Container configuration is generated only after repository instantiation. The generated
 repository must add `.devcontainer/` to the normal CODEOWNERS review scope.
@@ -68,6 +72,9 @@ When creating a repository from this template, complete these steps in order:
    - Verify the repository’s actual default branch in GitHub.
    - Update branch-specific links and workflow assumptions only after confirmation.
    - Do not assume `main`, `master`, or any other branch name.
+   - The template workflows trigger on pushes to `main`. If the confirmed default branch differs,
+     update the `push.branches` filters in `.github/workflows/security.yml`,
+     `.github/workflows/validate-template.yml`, and `.github/workflows/scorecard.yml`.
 
 6. **Security configuration**
    - Complete the root-level `SECURITY.md` as described below.
@@ -87,6 +94,7 @@ When creating a repository from this template, complete these steps in order:
    - Review links, placeholders, workflows, CODEOWNERS, and community-health files.
    - Test the issue-template chooser in the instantiated repository.
    - Review the final diff and confirm that unrelated template or user changes were preserved.
+   - Delete the template-only files `TEMPLATE.md` and `scripts/configure-repository.sh`.
 
 ## CODEOWNERS and review protection
 
@@ -182,6 +190,12 @@ After repository creation, configure repository settings or rulesets to require:
 - Required Code Owner approval.
 - Required signed commits on protected branches.
 - The PR-title lint workflow as a required status check.
+- Squash merging only, with the Pull Request title as the default squash commit message, so the
+  default branch history follows Conventional Commits for `git-cliff`.
+
+`scripts/configure-repository.sh` applies these settings to the default branch and enables private
+vulnerability reporting, secret scanning, and push protection. Rulesets for release branches remain
+manual.
 
 Conventional Commit Pull Request titles are enforced by this required status check. Configure the
 lint workflow's stable check name in the applicable GitHub ruleset for the protected default branch
@@ -234,14 +248,25 @@ Use explicit, searchable placeholders when verified information is unavailable:
 
 - `<REPLACE_WITH_REPOSITORY_NAME>`
 - `<REPLACE_WITH_REPOSITORY_DESCRIPTION>`
+- `<REPLACE_WITH_PROJECT_OVERVIEW>`
+- `<REPLACE_WITH_PREREQUISITES>`
+- `<REPLACE_WITH_INSTALLATION_AND_USAGE>`
 - `<REPLACE_WITH_SECURITY_CONTACT>`
+- `<REPLACE_WITH_CONDUCT_CONTACT>`
 - `<REPLACE_WITH_SUPPORTED_VERSION_POLICY>`
 - `<REPLACE_WITH_COPYRIGHT_HOLDER>`
+- `<REPLACE_WITH_COPYRIGHT_YEARS>`
+- `<REPLACE_WITH_PROJECT_HOMEPAGE_URL>`
 - `<REPLACE_WITH_DEFAULT_BRANCH>`
 - `<REPLACE_WITH_MAINTAINER_TEAM>`
 
+Always use the `<REPLACE_WITH_...>` form; do not use HTML comments or plausible-looking sample
+content as placeholders, because they are invisible or misleading once rendered.
+
 A placeholder is not complete configuration. Report every remaining placeholder and the person or
-team that must confirm it.
+team that must confirm it. The `Validate Template` workflow fails in generated (non-template)
+repositories while any `<REPLACE_WITH_...>` placeholder remains outside `AGENTS.md` and
+`TEMPLATE.md`.
 
 ## Completing SECURITY.md
 
@@ -290,8 +315,9 @@ When instantiating a repository from this template:
 1. Inspect the generated repository for dependency manifests before creating a configuration.
 2. Detect ecosystems from files that actually exist; do not infer an ecosystem from the project
    name, owning domain, or expected technology.
-3. Create `.github/dependabot.yml` only when at least one supported dependency manifest or GitHub
-   Actions workflow exists. Do not create it when no supported dependency source is present.
+3. Keep the template's `github-actions` entry in `.github/dependabot.yml`, because every generated
+   repository inherits the template workflows. Add entries only for other ecosystems whose
+   supported dependency manifests actually exist.
 4. Configure the correct directory for each detected manifest. Use `/` for a root-level manifest
    and the manifest's actual subdirectory for nested projects or workspaces.
 5. Use the matching Dependabot ecosystem when applicable, including:
@@ -323,12 +349,10 @@ When instantiating a repository from this template:
 13. Validate the generated `.github/dependabot.yml` after creating it, including YAML syntax,
     ecosystem names, manifest directories, schedules, limits, grouping, and labels.
 
-The generic template intentionally does not contain a fixed Dependabot configuration. Dependabot
-configuration is generated only after repository instantiation and must match the actual technology
-stack. A generated repository may need no Dependabot configuration at all. The absence of
-`.github/dependabot.yml` is correct when no supported dependency manifest or workflow is present.
-Security alerts and security updates can still be enabled independently in GitHub settings without
-a `dependabot.yml` file.
+The generic template ships only a `github-actions` Dependabot entry, because its workflows are
+inherited by every generated repository. Entries for other ecosystems are added only after
+repository instantiation and must match the actual technology stack. Security alerts and security
+updates can still be enabled independently in GitHub settings.
 
 ## Development container
 
@@ -399,6 +423,7 @@ Before declaring an instantiated repository complete, verify:
 - Reusable forms and `config.yml` contain no repository-specific links.
 - Domain automation is configured to calculate Domain from the source repository.
 - No unintended legal, license, CLA, copyright, or community-health changes were introduced.
+- Template-only files `TEMPLATE.md` and `scripts/configure-repository.sh` were deleted.
 - The final diff contains only the intended instantiation changes.
 
 ## Completion report

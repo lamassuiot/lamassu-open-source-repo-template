@@ -1,6 +1,5 @@
-name: Bug report
-description: Report a reproducible problem in the project
-title: "[Bug]: "
+name: "🐛 Bug"
+description: Report a reproducible problem in the project.
 labels:
   - bug
   - needs-triage
@@ -16,7 +15,7 @@ body:
         Do not include passwords, tokens, private keys, certificates,
         customer data, personal data, or other confidential information.
         If this is a security vulnerability, do not report it publicly;
-        follow the process in [SECURITY.md](../../SECURITY.md) instead.
+        follow the private reporting process in this repository's `SECURITY.md` instead.
 
   - type: checkboxes
     id: checks
