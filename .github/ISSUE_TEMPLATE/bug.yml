@@ -16,7 +16,7 @@ body:
         Do not include passwords, tokens, private keys, certificates,
         customer data, personal data, or other confidential information.
         If this is a security vulnerability, do not report it publicly;
-        follow the security reporting process described in the repository's SECURITY.md file.
+        follow the process in [SECURITY.md](../../SECURITY.md) instead.
 
   - type: checkboxes
     id: checks

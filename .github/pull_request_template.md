@@ -26,7 +26,7 @@ do not use a closing keyword for it, since Strategic Epics are not closed from d
 - [ ] Feature
 - [ ] Task / chore
 - [ ] Documentation
-- [ ] Other (describe above)
+- [ ] Other (describe the change type above)
 
 ## Testing performed
 
@@ -51,12 +51,10 @@ do not use a closing keyword for it, since Strategic Epics are not closed from d
 
 ## CLA verification
 
-Read the [central Lamassu legal documentation](https://github.com/lamassuiot/lamassu-platform/tree/main/legal)
-and [current ICLA and CCLA signing instructions](https://github.com/lamassuiot/lamassu-platform/tree/main/legal/cla).
-Verification is currently manual and is performed by maintainers (see the
-[maintainer process](https://github.com/lamassuiot/lamassu-platform/tree/main/legal/cla-maintainer-runbook.md)); there is no automated CLA service.
+- [ ] I have completed the applicable Lamassu CLA process described in `CONTRIBUTING.md`.
+- [ ] I am contributing under the correct capacity: ICLA or CCLA.
+- [ ] If covered by a CCLA, I am not also submitting this contribution under the ICLA.
+- [ ] All contributors and co-authors are identified.
+- [ ] No private agreements or legal evidence are included in this pull request.
 
-- [ ] I am covered by the applicable ICLA or CCLA, based on the capacity in which I am contributing.
-- [ ] If this contribution is covered by a CCLA, I am not also submitting it under the ICLA.
-- [ ] All contributors and co-authors involved in this pull request are identified.
-- [ ] I understand that private signed agreements and legal evidence must not be included in this pull request.
+> These declarations do not replace the manual verification performed by Lamassu maintainers.

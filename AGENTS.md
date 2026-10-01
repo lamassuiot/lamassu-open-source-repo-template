@@ -29,6 +29,14 @@ If required information is missing, ask the repository owner for it. If the work
 without an answer, leave an explicit `TODO` or a clearly named placeholder such as
 `<REPLACE_WITH_REPOSITORY_NAME>`. Do not silently substitute plausible-looking information.
 
+## Repository tooling
+
+Use the Serena MCP tools for repository navigation, symbol search, code understanding, and related
+analysis when Serena is available in the agent environment. If Serena is unavailable or does not
+support the required operation, use the repository's standard tools, such as `rg`, `git`, and the
+available build or validation commands. Do not assume that Serena or any other optional MCP server
+is installed.
+
 ## Instantiation workflow
 
 When creating a repository from this template, complete these steps in order:
@@ -183,6 +191,42 @@ it uses `pull_request_target` without checking out or executing contributor code
 Repository settings and rulesets cannot be enforced only by files committed to the repository.
 They require administrator configuration. Verify that the ruleset targets the protected default
 branch and any protected release branches, and report any missing manual configuration.
+
+## Contributor License Agreement Documentation
+
+The Pull Request template must remain concise. It must not contain the full ICLA or CCLA text,
+private repositories, private signing records, legal evidence, or references to an automated CLA
+service. Contributor-facing CLA documentation belongs in `CONTRIBUTING.md`; public repositories
+should contain only references and contributor instructions. The legal text and signing process are
+centrally managed.
+
+The current legal documents and maintainer process are centrally managed through the
+[Lamassu CLA portal](https://cla.developers.lamassu.cloud/). Agents must verify the authoritative
+portal or public legal location before adding contributor-facing links. If the authoritative
+location is unavailable or unclear, do not claim that a link is valid and do not invent a replacement
+path. Report the uncertainty and leave the contributor-facing link unchanged until it is confirmed.
+
+The CLA process is:
+
+- Individual contributors must use the ICLA when contributing personally.
+- Contributors acting on behalf of an organization must be covered by the applicable CCLA.
+- A person whose contribution is covered by a CCLA must not also submit the same contribution under
+  the ICLA.
+- CLA verification is currently manual and is performed by Lamassu maintainers.
+- Signed agreements, private legal evidence, employment documents, and contributor records must
+  never be added to Pull Requests, Issues, public repositories, public project boards, or public
+  comments.
+- Checking the CLA boxes in a Pull Request is only a contributor declaration; it does not replace
+  maintainer verification.
+
+Agents must not:
+
+- Copy the full ICLA or CCLA into target repositories.
+- Create or modify signed legal agreements.
+- Invent legal wording.
+- Link to the private `lamassu-platform` legal directory.
+- Claim that a contributor is legally covered without maintainer verification.
+- Replace the manual CLA process with an automated CLA service unless explicitly instructed.
 
 ## Placeholder conventions
 
