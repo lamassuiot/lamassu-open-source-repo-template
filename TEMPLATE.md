@@ -42,6 +42,9 @@ attribution.
 
 ## 3. Adapt repository files
 
+- **Changelog and releases:** `cliff.toml`, `CHANGELOG.md`, and `.github/workflows/release.yml`
+  assume the repository publishes tagged `vX.Y.Z` releases. If this repository will not publish
+  versioned releases, delete those three files instead of configuring them.
 - **CODEOWNERS:** keep `@lamassuiot/lamassu-maintainers` only if the team owns this repository,
   and give the team explicit write access.
 - **Default branch:** if it is not `main`, update the `push.branches` filters in

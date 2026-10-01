@@ -92,7 +92,11 @@ automatically by the title-lint workflow against this format. Individual commits
 request do not need to follow this format.
 
 Maintainers regenerate the changelog when preparing a release, for example with
-`git cliff --tag vX.Y.Z --output CHANGELOG.md`.
+`git cliff --tag vX.Y.Z --output CHANGELOG.md`, and include it in the release pull request.
+
+Pushing a `vX.Y.Z` tag triggers the [release workflow](./.github/workflows/release.yml), which
+generates a draft GitHub Release with notes from the same commit history. A maintainer reviews
+and publishes the draft.
 
 ## Pull requests
 
