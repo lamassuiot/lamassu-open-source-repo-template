@@ -1,7 +1,7 @@
 name: Lint PR Title
 
-# Enforces Conventional Commits on pull request titles. This matters most if the repository
-# squash-merges pull requests, since the PR title becomes the commit subject.
+# Enforces Conventional Commits on pull request titles. Pull requests are squash-merged, so the
+# PR title becomes the commit subject used by git-cliff.
 
 on:
   # Use pull_request_target so title validation also runs for pull requests from forks.

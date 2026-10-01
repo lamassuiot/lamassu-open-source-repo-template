@@ -53,8 +53,8 @@ Please create or link an issue before starting implementation work.
 
 ## Requesting features
 
-Open a new issue using the **Feature** form. Describe the problem or motivation,
-your proposed solution, and any alternatives you considered.
+Open a new issue using the **Feature** form. Describe the problem or opportunity, the value it
+would deliver, and the outcome you would like to see, without prescribing an implementation.
 
 ## Creating implementation issues
 

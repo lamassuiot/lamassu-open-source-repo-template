@@ -126,12 +126,14 @@ case-sensitive.
 
 The maintainer team owns general repository changes and governance files, including:
 
-- `.github/`
-- `CODEOWNERS`
+- `.github/`, including `.github/CODEOWNERS`
 - `AGENTS.md`
-- `SECURITY.md`
+- `CODE_OF_CONDUCT.md`
 - `CONTRIBUTING.md`
+- `SECURITY.md`
 - `LICENSE`
+- `NOTICE`
+- `cliff.toml`
 
 CODEOWNERS only requests or identifies reviewers. It does not by itself prevent merging. After
 creating the repository, configure a branch ruleset for the repository's protected default branch
@@ -266,9 +268,8 @@ content as placeholders, because they are invisible or misleading once rendered.
 
 A placeholder is not complete configuration. Report every remaining placeholder and the person or
 team that must confirm it. The `Validate repository template` job in `.github/workflows/ci.yml`
-fails in generated (non-template)
-repositories while any `<REPLACE_WITH_...>` placeholder remains outside `AGENTS.md` and
-`TEMPLATE.md`.
+fails in generated (non-template) repositories while any `<REPLACE_WITH_...>` placeholder remains
+outside `AGENTS.md` and `TEMPLATE.md`.
 
 ## Completing SECURITY.md
 
