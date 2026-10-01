@@ -1,8 +1,8 @@
 # git-cliff configuration.
 # See https://git-cliff.org/docs/configuration for all available options.
 #
-# This uses the built-in Conventional Commits parser. Commit messages (or PR titles, if this
-# repository squash-merges pull requests) must follow https://www.conventionalcommits.org/
+# This uses the built-in Conventional Commits parser. Pull requests are squash-merged, so PR
+# titles become the commit subjects and must follow https://www.conventionalcommits.org/
 # for entries to be categorized correctly. See CONTRIBUTING.md's "Commit messages" section.
 
 [changelog]
@@ -36,20 +36,20 @@ footer = ""
 conventional_commits = true
 filter_unconventional = true
 split_commits = false
-# The "<!-- N -->" prefixes fix section order (git-cliff groups alphabetically); `striptags`
-# in the body template removes them before display.
+# The "<!-- NN -->" prefixes fix section order (groups sort as text, so keep them zero-padded);
+# `striptags` in the body template removes them before display.
 commit_parsers = [
-  { message = "^feat", group = "<!-- 0 -->Features" },
-  { message = "^fix", group = "<!-- 1 -->Bug Fixes" },
-  { message = "^docs", group = "<!-- 2 -->Documentation" },
-  { message = "^perf", group = "<!-- 3 -->Performance" },
-  { message = "^refactor", group = "<!-- 4 -->Refactoring" },
-  { message = "^style", group = "<!-- 5 -->Styling" },
-  { message = "^test", group = "<!-- 6 -->Testing" },
-  { message = "^revert", group = "<!-- 7 -->Reverts" },
+  { message = "^feat", group = "<!-- 00 -->Features" },
+  { message = "^fix", group = "<!-- 01 -->Bug Fixes" },
+  { message = "^docs", group = "<!-- 02 -->Documentation" },
+  { message = "^perf", group = "<!-- 03 -->Performance" },
+  { message = "^refactor", group = "<!-- 04 -->Refactoring" },
+  { message = "^style", group = "<!-- 05 -->Styling" },
+  { message = "^test", group = "<!-- 06 -->Testing" },
+  { message = "^revert", group = "<!-- 07 -->Reverts" },
   { message = "^chore\\(release\\)", skip = true },
-  { message = "^chore", group = "<!-- 8 -->Miscellaneous" },
-  { message = "^ci", group = "<!-- 9 -->Continuous Integration" },
+  { message = "^chore", group = "<!-- 08 -->Miscellaneous" },
+  { message = "^ci", group = "<!-- 09 -->Continuous Integration" },
   { message = "^build", group = "<!-- 10 -->Build System" },
 ]
 filter_commits = false

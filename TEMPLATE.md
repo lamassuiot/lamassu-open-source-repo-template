@@ -47,7 +47,13 @@ attribution.
   assume the repository publishes tagged `vX.Y.Z` releases. If this repository will not publish
   versioned releases, delete those three files instead of configuring them.
 - **CODEOWNERS:** keep `@lamassuiot/lamassu-maintainers` only if the team owns this repository,
-  and give the team explicit write access.
+  and give the team explicit write access, otherwise Code Owner review can never be satisfied:
+
+  ```bash
+  gh api -X PUT orgs/lamassuiot/teams/lamassu-maintainers/repos/lamassuiot/<repository-name> \
+    -f permission=push
+  ```
+
 - **Default branch:** if it is not `main`, update the `push.branches` filters in
   `.github/workflows/ci.yml` and `.github/workflows/scorecard.yml`.
 - **Dependabot:** keep the `github-actions` entry in `.github/dependabot.yml` and add entries only
@@ -76,8 +82,13 @@ The script:
 - Verifies the `bug`, `enhancement`, and `needs-triage` labels, which come from the organization
   default labels, and the organization Issue Types `Bug`, `Feature`, and `Task`.
 
-The script is safe to run again. Configure these manually:
+The script is safe to run again. Dependency review can fail on the first pull request right after
+the script enables Dependabot alerts, while GitHub builds the dependency graph; re-run the job.
 
+Configure these manually:
+
+- Contributions use the CLA process only. If the organization's DCO app is installed for the new
+  repository, an organization owner must remove the repository from the app's repository access.
 - Rulesets for protected release branches, when applicable.
 - GitHub Discussions, if the project uses them.
 - Domain automation for GitHub Projects.
