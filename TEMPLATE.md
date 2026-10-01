@@ -3,7 +3,8 @@
 This guide is for the people creating a new Lamassu open-source repository from this template.
 Agents follow [AGENTS.md](./AGENTS.md), which contains the full policy. This file and
 `scripts/configure-repository.sh` are template-only: delete both after instantiation. The
-`Validate Template` workflow fails in generated repositories while either file remains.
+`Validate repository template` job in `.github/workflows/ci.yml` fails in generated repositories
+while either file remains.
 
 Never guess repository names, descriptions, contacts, versions, URLs, or legal information. Ask
 the responsible owner and leave the placeholder in place until the value is confirmed.
@@ -48,8 +49,7 @@ attribution.
 - **CODEOWNERS:** keep `@lamassuiot/lamassu-maintainers` only if the team owns this repository,
   and give the team explicit write access.
 - **Default branch:** if it is not `main`, update the `push.branches` filters in
-  `.github/workflows/security.yml`, `.github/workflows/validate-template.yml`, and
-  `.github/workflows/scorecard.yml`.
+  `.github/workflows/ci.yml` and `.github/workflows/scorecard.yml`.
 - **Dependabot:** keep the `github-actions` entry in `.github/dependabot.yml` and add entries only
   for dependency manifests that exist in the repository.
 - **Dev Container:** add `.devcontainer/` only when the technology stack is known, and add it to

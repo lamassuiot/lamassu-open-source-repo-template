@@ -11,7 +11,8 @@ this template, replace or confirm every repository-specific value.
 
 `TEMPLATE.md` is the human-facing instantiation guide, and `scripts/configure-repository.sh`
 applies the baseline GitHub settings. Both files are template-only and must be deleted from the
-generated repository after instantiation; the `Validate Template` workflow fails while they remain.
+generated repository after instantiation; the `Validate repository template` job in
+`.github/workflows/ci.yml` fails while they remain.
 
 The generic template must not contain a technology-specific `.devcontainer/devcontainer.json`.
 Dev Container configuration is generated only after repository instantiation. The generated
@@ -73,8 +74,8 @@ When creating a repository from this template, complete these steps in order:
    - Update branch-specific links and workflow assumptions only after confirmation.
    - Do not assume `main`, `master`, or any other branch name.
    - The template workflows trigger on pushes to `main`. If the confirmed default branch differs,
-     update the `push.branches` filters in `.github/workflows/security.yml`,
-     `.github/workflows/validate-template.yml`, and `.github/workflows/scorecard.yml`.
+     update the `push.branches` filters in `.github/workflows/ci.yml` and
+     `.github/workflows/scorecard.yml`.
 
 6. **Security configuration**
    - Complete the root-level `SECURITY.md` as described below.
@@ -264,7 +265,8 @@ Always use the `<REPLACE_WITH_...>` form; do not use HTML comments or plausible-
 content as placeholders, because they are invisible or misleading once rendered.
 
 A placeholder is not complete configuration. Report every remaining placeholder and the person or
-team that must confirm it. The `Validate Template` workflow fails in generated (non-template)
+team that must confirm it. The `Validate repository template` job in `.github/workflows/ci.yml`
+fails in generated (non-template)
 repositories while any `<REPLACE_WITH_...>` placeholder remains outside `AGENTS.md` and
 `TEMPLATE.md`.
 
